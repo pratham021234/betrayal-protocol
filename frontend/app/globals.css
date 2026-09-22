@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@600;700;800&display=swap');
+
+:root {
+  /* Deep Dystopian Black Mirror Palette */
+  --bg-deep: #030508;
+  --bg-dark: #070A10;
+  --bg-card: rgba(12, 17, 28, 0.78);
+  --bg-card-hover: rgba(18, 25, 42, 0.9);
+  
+  /* Tron & Cyber Neon Accents */
+  --cyan-tron: #00F0FF;
+  --cyan-glow: rgba(0, 240, 255, 0.4);
+  --cyan-dim: rgba(0, 240, 255, 0.12);
+  
+  /* Squid Game Crimson / Breach */
+  --crimson-squid: #FF0055;
+  --crimson-glow: rgba(255, 0, 85, 0.45);
+  --crimson-dim: rgba(255, 0, 85, 0.12);
+  
+  /* High-Stakes Gold / Amber */
+  --amber-gold: #FFB800;
+  --amber-glow: rgba(255, 184, 0, 0.4);
+  
+  /* Overseer Purple */
+  --purple-overseer: #A855F7;
+  --purple-glow: rgba(168, 85, 247, 0.4);
+  
+  /* Emerald Safe / Sync */
+  --emerald-safe: #10B981;
+  --emerald-glow: rgba(16, 185, 129, 0.35);
+
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-accent: rgba(0, 240, 255, 0.35);
+  
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Tron Horizon 3D Perspective Grid */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(255, 0, 85, 0.08) 0%, transparent 45%),
+    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Space Grotesk', 'Chakra Petch', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Container */
+.container-max {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Obsidian Glassmorphism 2.0 Card */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-glow-cyan {
+  border-color: var(--cyan-tron);
+  box-shadow: 0 0 30px -5px var(--cyan-glow), inset 0 0 15px rgba(0, 240, 255, 0.08);
+}
+
+.glass-panel-glow-crimson {
+  border-color: var(--crimson-squid);
+  box-shadow: 0 0 30px -5px var(--crimson-glow), inset 0 0 15px rgba(255, 0, 85, 0.08);
+}
+
+/* Squid Game Shape Glyphs */
+.shape-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--cyan-tron);
+  color: var(--cyan-tron);
+  font-weight: 800;
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.shape-triangle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 18px solid var(--crimson-squid);
+  filter: drop-shadow(0 0 8px var(--crimson-glow));
+}
+
+.shape-square {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--purple-overseer);
+  color: var(--purple-overseer);
+  box-shadow: 0 0 10px var(--purple-glow);
+}
+
+/* Cyber Buttons */
+.cyber-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 26px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.cyber-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cyber-btn:hover::before {
+  left: 100%;
+}
+
+.cyber-btn:active {
+  transform: scale(0.97);
+}
+
+.cyber-btn-cyan {
+  background: linear-gradient(135deg, #00F0FF 0%, #0088FF 100%);
+  color: #020612;
+  box-shadow: 0 4px 24px -2px var(--cyan-glow);
+}
+
+.cyber-btn-cyan:hover {
+  box-shadow: 0 6px 32px 0px rgba(0, 240, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.cyber-btn-crimson {
+  background: linear-gradient(135deg, #FF0055 0%, #B80036 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 24px -2px var(--crimson-glow);
+}
+
+.cyber-btn-crimson:hover {
+  box-shadow: 0 6px 32px 0px rgba(255, 0, 85, 0.75);
+  transform: translateY(-2px);
+}
+
+.cyber-btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(8px);
+}
+
+.cyber-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Big Decision Choice Cards */
+.decision-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 34px 22px;
+  border-radius: 22px;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 20, 32, 0.72);
+  backdrop-filter: blur(24px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.decision-card.cooperate:hover,
+.decision-card.cooperate.selected {
+  border-color: var(--cyan-tron);
+  box-shadow: 0 0 40px var(--cyan-glow), inset 0 0 24px rgba(0, 240, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.decision-card.betray:hover,
+.decision-card.betray.selected {
+  border-color: var(--crimson-squid);
+  box-shadow: 0 0 40px var(--crimson-glow), inset 0 0 24px rgba(255, 0, 85, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Hazard Warning Stripes */
+.hazard-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 0, 85, 0.15),
+    rgba(255, 0, 85, 0.15) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+}
+
+/* Scanline Effect */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.5;
+  border-radius: inherit;
+}
+
+/* Glitch Jitter Animation */
+@keyframes glitchJitter {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.animate-glitch {
+  animation: glitchJitter 0.3s ease infinite;
+}
+
+@keyframes pulseHalo {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+.animate-pulse-halo {
+  animation: pulseHalo 2s infinite ease-in-out;
+}
+
+/* Stamped Outcome Badge */
+.stamp-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 3px solid currentColor;
+  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  animation: stampSlam 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes stampSlam {
+  0% { transform: scale(2.2) rotate(-8deg); opacity: 0; }
+  100% { transform: scale(1) rotate(-1.5deg); opacity: 1; }
+}
+
+/* Floating Taunts */
+@keyframes floatEmote {
+  0% { opacity: 0; transform: translateY(20px) scale(0.85); }
+  12% { opacity: 1; transform: translateY(0px) scale(1); }
+  88% { opacity: 1; transform: translateY(-4px) scale(1); }
+  100% { opacity: 0; transform: translateY(-24px) scale(0.9); }
+}
+
+.animate-taunt-float {
+  animation: floatEmote 3.8s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
